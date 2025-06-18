@@ -1,0 +1,16 @@
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    ports:
+      - "8151:80"
+    volumes:
+      #change the file path thats mapped to /srv to the directory that you want to be able to manipulate in the filebrowser web UI
+      #(for me thats the directory that I mounted my external hard drive to, that contains all the media for my plex server)
+      - ../../mediaDrive:/srv
+      - ./config:/config
+      - ./database:/database
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000

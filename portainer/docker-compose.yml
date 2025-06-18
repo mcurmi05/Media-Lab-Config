@@ -1,0 +1,12 @@
+services:
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      #notice that we havent placed this docker.sock directory relative to our portainer folder because the docker socket file is something that already exists on your system if you are running docker
+      #portainer needs access to this file to know about the docker containers you are running so make sure this directory is unchanged
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./portainer_data:/data

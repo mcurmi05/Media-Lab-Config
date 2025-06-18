@@ -1,0 +1,15 @@
+services:
+  plex:
+    image: linuxserver/plex:latest
+    container_name: plex
+    restart: unless-stopped
+    network_mode: host  
+    environment:
+      - PUID=1000      
+      - PGID=1000     
+    volumes:
+      #change the directories to match where you have stored your tv or movies, you can change the name of the directory its mapped to if you like 
+      #(eg /data/tv can be /data/anything, just know that when you go to plex thats the name you gave it so your files in the filepath on the left are there)
+      - ./config:/config
+      - ../../mediaDrive/tv:/data/tv
+      - ../../mediaDrive/movies:/data/movies 

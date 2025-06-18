@@ -1,0 +1,36 @@
+services:
+
+  nginx-proxy-manager-db:
+
+    #make sure to change the database password to something unique, the user and name's aren't that important but feel free to change them
+
+    image: mariadb:10.5
+    container_name: nginx-proxy-manager-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: creativepassword
+      MYSQL_DATABASE: npm
+      MYSQL_USER: npm
+      MYSQL_PASSWORD: creativepassword
+    volumes:
+      - ./database:/var/lib/mysql
+
+  nginx-proxy-manager:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx-proxy-manager
+    restart: unless-stopped
+    depends_on:
+      - nginx-proxy-manager-db
+    ports:
+      - "80:80"
+      - "81:81"  
+      - "443:443"
+    environment:
+      DB_MYSQL_HOST: nginx-proxy-manager-db
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: npm
+      DB_MYSQL_PASSWORD: creativepassword
+      DB_MYSQL_NAME: npm
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
