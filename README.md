@@ -32,3 +32,5 @@ A beautiful and customizable web dashboard to quickly access and organize all of
 - Any kind of computer (old unused laptops are great). If you want your media server to be running 24/7, best to run something lightweight (I chose Ubuntu Server, which is a super lightweight barebones linux distribution)
 - Docker and docker compose
 - Make sure to open ports 80 and 443 on your firewall for this to work (if you prefer not to a VPN setup might be better)
+
+To implement this all you gotta do is run docker-compose up -d in each container directory in your terminal once they have been edited for your file path needs. To turn off containers you can run docker-compose down, docker ps will show you all your docker processes which displays all your containers. This might depend on your version of docker compose so make sure to read the docs. Otherwise learn how to use the portainer interface to troubleshoot your containers if you aren't comfortable with the terminal.
