@@ -11,10 +11,10 @@ This setup includes the following containers:
 Streams your organized media collection to multiple devices, with metadata, posters, and sick library views, with users for family use.
 
 ### 🌐 Nginx Proxy Manager
-Provides a simple web interface to manage reverse proxies, SSL certificates via Let's Encrypt, and expose internal services securely to the internet. Consider alternatives to this like using some sort of VPN setup, cloudflare is great for that.
+Provides a simple web interface to manage reverse proxies, SSL certificates via Let's Encrypt, and expose internal services securely to the internet. Consider alternatives to this like using some sort of VPN setup, cloudflare is great for that. I've used this along with domain records to essentially have my own websites for each of my services with SSL encryption.
 
 ### 📁 File Browser
-A web based file manager used to navigate, edit, and manage media and download directories with ease.
+A web based file manager used to navigate, edit, and manage media and download directories with ease. If you want to download media remotely you need to be able to move it to a plex recognised media directory once its done so this is great for that sort of task!
 
 ### 🌊 qBittorrent *(for legal downloads only!)*
 A powerful and user friendly torrent client for handling media downloads (only use this to download non pirated media).
